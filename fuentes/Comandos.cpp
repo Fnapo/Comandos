@@ -38,12 +38,35 @@ Comandos::~Comandos() {
     cadena[0] = '\0';
 }
 
-int Comandos::esSeparador(int caracter) {
-    int salida = 0;
-    int separadores[] = {'\n', '\t', '\r', '\v', ' '};
+void Comandos::rTrim() {
+    while (longitud > 0 && esSeparador(cadena[longitud - 1])) {
+        cadena[--longitud] = '\0';
+    }
+}
 
-    for (int indice; indice < separadores; ++indice) {
-        salida = (caracter == separadores[indice]);
+void Comandos::lTrim() {
+    int cuantos = 0;
+
+    while (esSeparador(cadena[cuantos])) {
+        ++cuantos;
+    }
+    for (int indice = cuantos; indice <= longitud; ++indice) {
+        cadena[indice - cuantos] = cadena[indice];
+    }
+    longitud -= cuantos;
+}
+
+void Comandos::trim() {
+    rTrim();
+    lTrim();
+}
+
+int Comandos::esSeparador(char caracter) {
+    int salida = 0;
+    Comandos separador("\n\t\t\v ");
+
+    for (int indice = 0; indice < separador.longitud; ++indice) {
+        salida = (caracter == separador.cadena[indice]);
         if (salida) {
             break;
         }

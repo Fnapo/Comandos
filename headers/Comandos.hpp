@@ -33,13 +33,25 @@ public:
 
     /**
      * 
-     * Indica si caracter es (1) un separador o no (0).
+     * Indica si caracter es un separador (1) o no (0).
      * 
      * @param {int} caracter
      * @return {int}
      * 
      */
-    static int esSeparador(int caracter);
+    static int esSeparador(char caracter);
+
+    inline char operator[](int indice) const {
+        if (indice < 0 || indice >= longitud) {
+            return '\0';
+        }
+
+        return cadena[indice];
+    }
+
+    inline operator const char *() {
+        return cadena;
+    }
 
     inline friend ostream& operator<<(ostream &out, const Comandos &origen) {
         out << origen.cadena;
@@ -63,6 +75,19 @@ public:
         salida.leer(in);
 
         return in;
+    }
+    /**
+     * 
+     * Las funciones típicas de cadenas:
+     * trim, lTrim, rTrim.
+     * 
+     */
+    void trim();
+    void lTrim();
+    void rTrim();
+
+    inline int Longitud() const {
+        return longitud;
     }
 private:
     char cadena[COMANDO_LONGITUD + 1];
