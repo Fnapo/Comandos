@@ -19,7 +19,7 @@
 #define COMANDO_LONGITUD 50
 
 /*
- * Clase para trabajar con cadenas cortas (COMANDO_LONGITUD-1 caracteres como máximo).
+ * Clase para trabajar con cadenas cortas (COMANDO_LONGITUD caracteres como máximo).
  */
 using namespace std;
 
@@ -41,6 +41,27 @@ public:
      */
     static int esSeparador(char caracter);
 
+    /**
+     * 
+     * Devuelve los separadores habituales.
+     * 
+     * @return {Comandos}
+     * 
+     */
+    static Comandos Separadores() {
+        return separadores;
+    }
+
+    /**
+     * 
+     * Tras hacer un trim() actúa como la función strtok con los
+     * separadores habituales.
+     * 
+     * @return {Comandos}
+     * 
+     */
+    Comandos separar();
+
     inline char operator[](int indice) const {
         if (indice < 0 || indice >= longitud) {
             return '\0';
@@ -61,6 +82,25 @@ public:
 
     /**
      * 
+     * Copia en destino los primeros cuantos elementos.
+     * 
+     * @param {Comandos} destino
+     * @param {int} cuantos
+     * 
+     */
+    void copiarN(Comandos &destino, int cuantos);
+
+    /**
+     * 
+     * Elimina los primeros cuantos elementos.
+     * 
+     * @param cuantos
+     * 
+     */
+    void eliminarN(int cuantos);
+
+    /**
+     * 
      * Esta función y el operador >> están pensados para stdin(cin) o para 
      * ficheros con longitud de línea menor que COMANDO_LONGITUD.
      * leer devuelve el número de caracteres leídos.
@@ -76,6 +116,7 @@ public:
 
         return in;
     }
+
     /**
      * 
      * Las funciones típicas de cadenas:
@@ -92,7 +133,7 @@ public:
 private:
     char cadena[COMANDO_LONGITUD + 1];
     int longitud;
+    static const char separadores[];
 };
 
 #endif /* COMANDOS_HPP */
-

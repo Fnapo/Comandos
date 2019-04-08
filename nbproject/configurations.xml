@@ -30,6 +30,9 @@
       <itemPath>C:/x-cpp/Comandos/README.md</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>C:/x-cpp/PrimosCPP/headers</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">

@@ -21,9 +21,9 @@ using namespace std;
  * 
  */
 int main() {
-    Comandos orden("nwoennonoik lpoepopeoñk ocekkkkopk ckkkkkpkk ekpeckpkkckk");
-    char car = orden[2], car2 = orden[11];
-    int lugar = 14;
+    Comandos orden("nwoennonoik lpoepopeoñk ocekkkkopk ckkkkkpkk ekpeckpkkckk"), elemento;
+    char car = orden[2], car2 = orden[11], ayuda[] = "01234567890123456789";
+    int lugar = 14, cuantos = 0, eliminar = 11;
 
     cout << "Escribe una cadena: ";
     cin >> orden;
@@ -39,7 +39,20 @@ int main() {
     orden.trim();
     cout << "La longitud de '" << orden << "' es: " << orden.Longitud() << "." << endl;
     cout << "El caracter " << lugar << " es: '" << orden[lugar] << "'." << endl;
+    orden = "        ";
+    cout << "La longitud de '" << orden << "' es: " << orden.Longitud() << "." << endl;
+    orden.trim();
+    cout << "La longitud de '" << orden << "' es: " << orden.Longitud() << "." << endl;
+    elemento = orden = ayuda;
+    orden.copiarN(elemento, cuantos);
+    cout << "Copiando " << cuantos << " chars de: '" << orden << "' en: '" << elemento << "'." << endl;
+    elemento = orden = ayuda;
+    elemento.eliminarN(eliminar);
+    cout << "Eliminando " << eliminar << " chars de: '" << orden << "' pasando a: '" << elemento << "'." << endl;
+    //    orden = "         ";
+    //    cout << "La cadena: '" << orden << "'." << endl;
+    //    elemento = orden.separar();
+    //    cout << "Se convierte en: '" << orden << "' y '" << elemento << "'." << endl;
 
     return 0;
 }
-
