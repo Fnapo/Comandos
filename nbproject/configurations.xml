@@ -4,7 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>C:/x-cpp/Comandos/headers/Comandos.hpp</itemPath>
+      <itemPath>C:/x-cpp/Comandos/headers/Comando.hpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -13,7 +13,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>C:/x-cpp/Comandos/fuentes/Comandos.cpp</itemPath>
+      <itemPath>C:/x-cpp/Comandos/fuentes/Comando.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -46,12 +46,12 @@
           <standard>11</standard>
         </ccTool>
       </compileType>
-      <item path="C:/x-cpp/Comandos/fuentes/Comandos.cpp"
+      <item path="C:/x-cpp/Comandos/fuentes/Comando.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="C:/x-cpp/Comandos/headers/Comandos.hpp"
+      <item path="C:/x-cpp/Comandos/headers/Comando.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -80,12 +80,12 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="C:/x-cpp/Comandos/fuentes/Comandos.cpp"
+      <item path="C:/x-cpp/Comandos/fuentes/Comando.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="C:/x-cpp/Comandos/headers/Comandos.hpp"
+      <item path="C:/x-cpp/Comandos/headers/Comando.hpp"
             ex="false"
             tool="3"
             flavor2="0">

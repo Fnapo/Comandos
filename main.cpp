@@ -13,7 +13,7 @@
 
 #include <cstdlib>
 
-#include "headers/Comandos.hpp"
+#include "headers/Comando.hpp"
 
 using namespace std;
 
@@ -21,9 +21,9 @@ using namespace std;
  * 
  */
 int main() {
-    Comandos orden("nwoennonoik lpoepopeoñk ocekkkkopk ckkkkkpkk ekpeckpkkckk"), elemento;
+    Comando orden("nwoennonoik lpoepopeoñk ocekkkkopk ckkkkkpkk ekpeckpkkckk"), elemento;
     char car = orden[2], car2 = orden[11], ayuda[] = "01234567890123456789";
-    int lugar = 14, cuantos = 0, eliminar = 11;
+    int lugar = 14, cuantos = 13, eliminar = 11;
 
     cout << "Escribe una cadena: ";
     cin >> orden;

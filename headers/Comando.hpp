@@ -11,8 +11,8 @@
  * Created on 1 de abril de 2019, 11:12
  */
 
-#ifndef COMANDOS_HPP
-#define COMANDOS_HPP
+#ifndef COMANDO_HPP
+#define COMANDO_HPP
 
 #include <iostream>
 
@@ -23,13 +23,13 @@
  */
 using namespace std;
 
-class Comandos {
+class Comando {
 public:
-    Comandos();
-    Comandos(const Comandos& origen);
-    Comandos(const char *origen);
+    Comando();
+    Comando(const Comando& origen);
+    Comando(const char *origen);
 
-    virtual ~Comandos();
+    virtual ~Comando();
 
     /**
      * 
@@ -48,7 +48,7 @@ public:
      * @return {Comandos}
      * 
      */
-    static Comandos Separadores() {
+    static Comando Separadores() {
         return separadores;
     }
 
@@ -60,7 +60,7 @@ public:
      * @return {Comandos}
      * 
      */
-    Comandos separar();
+    Comando separar();
 
     inline char operator[](int indice) const {
         if (indice < 0 || indice >= longitud) {
@@ -74,7 +74,7 @@ public:
         return cadena;
     }
 
-    inline friend ostream& operator<<(ostream &out, const Comandos &origen) {
+    inline friend ostream& operator<<(ostream &out, const Comando &origen) {
         out << origen.cadena;
 
         return out;
@@ -88,7 +88,7 @@ public:
      * @param {int} cuantos
      * 
      */
-    void copiarN(Comandos &destino, int cuantos);
+    void copiarN(Comando &destino, int cuantos);
 
     /**
      * 
@@ -111,7 +111,7 @@ public:
      */
     int leer(istream &in);
 
-    friend inline istream& operator>>(istream &in, Comandos &salida) {
+    friend inline istream& operator>>(istream &in, Comando &salida) {
         salida.leer(in);
 
         return in;

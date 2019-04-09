@@ -14,21 +14,21 @@
 #include <stddef.h>
 #include <cstring>
 
-#include "../headers/Comandos.hpp"
+#include "../headers/Comando.hpp"
 
-const char Comandos::separadores[] = "\n\t\r\v ";
+const char Comando::separadores[] = "\n\t\r\v ";
 
-Comandos::Comandos() : longitud(0) {
+Comando::Comando() : longitud(0) {
     cadena[0] = '\0';
 }
 
-Comandos::Comandos(const Comandos& origen) : longitud(origen.longitud) {
+Comando::Comando(const Comando& origen) : longitud(origen.longitud) {
     for (int indice = 0; indice < longitud; ++indice) {
         cadena[indice] = origen.cadena[indice];
     }
 }
 
-Comandos::Comandos(const char* origen) : longitud(0) {
+Comando::Comando(const char* origen) : longitud(0) {
     while (longitud < COMANDO_LONGITUD && origen[longitud] != '\0') {
         cadena[longitud] = origen[longitud];
         ++longitud;
@@ -36,13 +36,13 @@ Comandos::Comandos(const char* origen) : longitud(0) {
     cadena[longitud] = '\0';
 }
 
-Comandos::~Comandos() {
+Comando::~Comando() {
     longitud = 0;
     cadena[0] = '\0';
 }
 
-Comandos Comandos::separar() {
-    Comandos salida;
+Comando Comando::separar() {
+    Comando salida;
 
     trim();
 
@@ -50,13 +50,13 @@ Comandos Comandos::separar() {
     return salida;
 }
 
-void Comandos::rTrim() {
+void Comando::rTrim() {
     while (longitud > 0 && esSeparador(cadena[longitud - 1])) {
         cadena[--longitud] = '\0';
     }
 }
 
-void Comandos::lTrim() {
+void Comando::lTrim() {
     int cuantos = 0;
 
     while (esSeparador(cadena[cuantos])) {
@@ -65,31 +65,36 @@ void Comandos::lTrim() {
     eliminarN(cuantos);
 }
 
-void Comandos::trim() {
+void Comando::trim() {
     rTrim();
     lTrim();
 }
 
-void Comandos::copiarN(Comandos& destino, int cuantos) {
-    cuantos = (cuantos <= 0 ? 0 : (cuantos >= longitud ? longitud : cuantos));
+void Comando::copiarN(Comando& destino, int cuantos) {
     destino = "";
+    if (cuantos < 1 || cuantos > longitud) {
+        return;
+    }
     for (int indice = 0; indice < cuantos; ++indice) {
         destino.cadena[indice] = cadena[indice];
     }
+    destino.cadena[cuantos] = '\0';
     destino.longitud = cuantos;
 }
 
-void Comandos::eliminarN(int cuantos) {
-    cuantos = (cuantos <= 0 ? 0 : (cuantos >= longitud ? longitud : cuantos));
+void Comando::eliminarN(int cuantos) {
+    if (cuantos < 1 || cuantos > longitud) {
+        return;
+    }
     for (int indice = cuantos; indice <= longitud; ++indice) {
         cadena[indice - cuantos] = cadena[indice];
     }
     longitud -= cuantos;
 }
 
-int Comandos::esSeparador(char caracter) {
+int Comando::esSeparador(char caracter) {
     int salida = 0;
-    Comandos separador("\n\t\t\v ");
+    Comando separador("\n\t\t\v ");
 
     for (int indice = 0; indice < separador.longitud; ++indice) {
         salida = (caracter == separador.cadena[indice]);
@@ -101,8 +106,8 @@ int Comandos::esSeparador(char caracter) {
     return salida;
 }
 
-int Comandos::leer(istream &in) {
-    Comandos aux;
+int Comando::leer(istream &in) {
+    Comando aux;
 
     in.getline(cadena, COMANDO_LONGITUD + 1);
     longitud = 0;

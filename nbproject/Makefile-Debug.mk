@@ -35,7 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/6ef1c56e/Comandos.o \
+	${OBJECTDIR}/_ext/6ef1c56e/Comando.o \
 	${OBJECTDIR}/main.o
 
 
@@ -63,10 +63,10 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/comandos.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/comandos ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/_ext/6ef1c56e/Comandos.o: /cygdrive/C/x-cpp/Comandos/fuentes/Comandos.cpp
+${OBJECTDIR}/_ext/6ef1c56e/Comando.o: /cygdrive/C/x-cpp/Comandos/fuentes/Comando.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/6ef1c56e
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/6ef1c56e/Comandos.o /cygdrive/C/x-cpp/Comandos/fuentes/Comandos.cpp
+	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/6ef1c56e/Comando.o /cygdrive/C/x-cpp/Comandos/fuentes/Comando.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
