@@ -11,25 +11,25 @@
  * Created on 1 de abril de 2019, 11:12
  */
 
-#ifndef COMANDO_HPP
-#define COMANDO_HPP
+#ifndef PROMPT_HPP
+#define PROMPT_HPP
 
 #include <iostream>
 
-#define COMANDO_LONGITUD 50
+#define PROMPT_LONGITUD 50
 
 /*
  * Clase para trabajar con cadenas cortas (COMANDO_LONGITUD caracteres como máximo).
  */
 using namespace std;
 
-class Comando {
+class Prompt {
 public:
-    Comando();
-    Comando(const Comando& origen);
-    Comando(const char *origen);
+    Prompt();
+    Prompt(const Prompt& origen);
+    Prompt(const char *origen);
 
-    virtual ~Comando();
+    virtual ~Prompt();
 
     /**
      * 
@@ -48,19 +48,19 @@ public:
      * @return {Comandos}
      * 
      */
-    static Comando Separadores() {
+    static Prompt Separadores() {
         return separadores;
     }
 
     /**
      * 
-     * Tras hacer un trim() actúa como la función strtok con los
-     * separadores habituales.
+     * Tras hacer un trim() actúa como una función strtok con los
+     * separadores habituales, sólo extrae una parte.
      * 
-     * @return {Comandos}
+     * @param {Prompt} destino
      * 
      */
-    Comando separar();
+    void separar(Prompt &destino);
 
     inline char operator[](int indice) const {
         if (indice < 0 || indice >= longitud) {
@@ -74,7 +74,7 @@ public:
         return cadena;
     }
 
-    inline friend ostream& operator<<(ostream &out, const Comando &origen) {
+    inline friend ostream& operator<<(ostream &out, const Prompt &origen) {
         out << origen.cadena;
 
         return out;
@@ -88,7 +88,7 @@ public:
      * @param {int} cuantos
      * 
      */
-    void copiarN(Comando &destino, int cuantos);
+    void copiarN(Prompt &destino, int cuantos);
 
     /**
      * 
@@ -111,7 +111,7 @@ public:
      */
     int leer(istream &in);
 
-    friend inline istream& operator>>(istream &in, Comando &salida) {
+    friend inline istream& operator>>(istream &in, Prompt &salida) {
         salida.leer(in);
 
         return in;
@@ -131,9 +131,10 @@ public:
         return longitud;
     }
 private:
-    char cadena[COMANDO_LONGITUD + 1];
+    char cadena[PROMPT_LONGITUD + 1];
     int longitud;
-    static const char separadores[];
+    
+    static Prompt separadores;
 };
 
-#endif /* COMANDOS_HPP */
+#endif /* PROMPT_HPP */

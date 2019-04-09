@@ -35,7 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/6ef1c56e/Comando.o \
+	${OBJECTDIR}/_ext/f7b0a9f8/Prompt.o \
 	${OBJECTDIR}/main.o
 
 
@@ -57,16 +57,16 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/comandos.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/prompt.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/comandos.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/prompt.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/comandos ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/prompt ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/_ext/6ef1c56e/Comando.o: /cygdrive/C/x-cpp/Comandos/fuentes/Comando.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/6ef1c56e
+${OBJECTDIR}/_ext/f7b0a9f8/Prompt.o: /cygdrive/C/x-cpp/Prompt/fuentes/Prompt.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/f7b0a9f8
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/6ef1c56e/Comando.o /cygdrive/C/x-cpp/Comandos/fuentes/Comando.cpp
+	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/f7b0a9f8/Prompt.o /cygdrive/C/x-cpp/Prompt/fuentes/Prompt.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

@@ -13,7 +13,7 @@
 
 #include <cstdlib>
 
-#include "headers/Comando.hpp"
+#include "./headers/Prompt.hpp"
 
 using namespace std;
 
@@ -21,7 +21,7 @@ using namespace std;
  * 
  */
 int main() {
-    Comando orden("nwoennonoik lpoepopeoñk ocekkkkopk ckkkkkpkk ekpeckpkkckk"), elemento;
+    Prompt orden("nwoennonoik lpoepopeoñk ocekkkkopk ckkkkkpkk ekpeckpkkckk"), elemento;
     char car = orden[2], car2 = orden[11], ayuda[] = "01234567890123456789";
     int lugar = 14, cuantos = 13, eliminar = 11;
 
@@ -49,10 +49,18 @@ int main() {
     elemento = orden = ayuda;
     elemento.eliminarN(eliminar);
     cout << "Eliminando " << eliminar << " chars de: '" << orden << "' pasando a: '" << elemento << "'." << endl;
-    //    orden = "         ";
-    //    cout << "La cadena: '" << orden << "'." << endl;
-    //    elemento = orden.separar();
-    //    cout << "Se convierte en: '" << orden << "' y '" << elemento << "'." << endl;
+    orden = "         ";
+    cout << "La cadena: '" << orden << "'." << endl;
+    orden.separar(elemento);
+    cout << "Se convierte en: '" << orden << "' y extrae '" << elemento << "'." << endl;
+    orden = "01234";
+    cout << "La cadena: '" << orden << "'." << endl;
+    orden.separar(elemento);
+    cout << "Se convierte en: '" << orden << "' y extrae '" << elemento << "'." << endl;
+    orden = "0123  01234";
+    cout << "La cadena: '" << orden << "'." << endl;
+    orden.separar(elemento);
+    cout << "Se convierte en: '" << orden << "' y extrae '" << elemento << "'." << endl;
 
     return 0;
 }

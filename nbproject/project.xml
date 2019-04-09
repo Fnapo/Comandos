@@ -3,7 +3,7 @@
     <type>org.netbeans.modules.cnd.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>Comandos</name>
+            <name>Prompt</name>
             <c-extensions/>
             <cpp-extensions>cpp</cpp-extensions>
             <header-extensions>hpp</header-extensions>
@@ -11,6 +11,8 @@
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>C:/x-cpp/PrimosCPP/headers</sourceRootElem>
+                <sourceRootElem>C:\x-cpp\Prompt\fuentes</sourceRootElem>
+                <sourceRootElem>C:\x-cpp\Prompt\headers</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

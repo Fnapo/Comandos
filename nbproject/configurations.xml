@@ -4,7 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>C:/x-cpp/Comandos/headers/Comando.hpp</itemPath>
+      <itemPath>C:/x-cpp/Prompt/headers/Prompt.hpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -13,7 +13,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>C:/x-cpp/Comandos/fuentes/Comando.cpp</itemPath>
+      <itemPath>C:/x-cpp/Prompt/fuentes/Prompt.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -25,13 +25,15 @@
                    displayName="Important Files"
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
-      <itemPath>C:/x-cpp/Comandos/.gitignore</itemPath>
+      <itemPath>C:/x-cpp/Prompt/.gitignore</itemPath>
       <itemPath>Makefile</itemPath>
-      <itemPath>C:/x-cpp/Comandos/README.md</itemPath>
+      <itemPath>C:/x-cpp/Prompt/README.md</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
     <Elem>C:/x-cpp/PrimosCPP/headers</Elem>
+    <Elem>C:\x-cpp\Prompt\fuentes</Elem>
+    <Elem>C:\x-cpp\Prompt\headers</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -46,15 +48,9 @@
           <standard>11</standard>
         </ccTool>
       </compileType>
-      <item path="C:/x-cpp/Comandos/fuentes/Comando.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
+      <item path="C:/x-cpp/Prompt/fuentes/Prompt.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="C:/x-cpp/Comandos/headers/Comando.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="C:/x-cpp/Prompt/headers/Prompt.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -80,15 +76,9 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="C:/x-cpp/Comandos/fuentes/Comando.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
+      <item path="C:/x-cpp/Prompt/fuentes/Prompt.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="C:/x-cpp/Comandos/headers/Comando.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="C:/x-cpp/Prompt/headers/Prompt.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
