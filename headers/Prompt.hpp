@@ -54,13 +54,21 @@ public:
 
     /**
      * 
+     * Pasa a mayúsculas o a minúsculas.
+     * 
+     */
+    void aMay();
+    void aMin();
+
+    /**
+     * 
      * Tras hacer un trim() actúa como una función strtok con los
      * separadores habituales, sólo extrae una parte.
      * 
      * @param {Prompt} destino
      * 
      */
-    void separar(Prompt &destino);
+    void extraer(Prompt &destino);
 
     inline char operator[](int indice) const {
         if (indice < 0 || indice >= longitud) {
@@ -133,7 +141,7 @@ public:
 private:
     char cadena[PROMPT_LONGITUD + 1];
     int longitud;
-    
+
     static Prompt separadores;
 };
 

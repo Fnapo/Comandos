@@ -51,16 +51,22 @@ int main() {
     cout << "Eliminando " << eliminar << " chars de: '" << orden << "' pasando a: '" << elemento << "'." << endl;
     orden = "         ";
     cout << "La cadena: '" << orden << "'." << endl;
-    orden.separar(elemento);
+    orden.extraer(elemento);
     cout << "Se convierte en: '" << orden << "' y extrae '" << elemento << "'." << endl;
     orden = "01234";
     cout << "La cadena: '" << orden << "'." << endl;
-    orden.separar(elemento);
+    orden.extraer(elemento);
     cout << "Se convierte en: '" << orden << "' y extrae '" << elemento << "'." << endl;
     orden = "0123  01234";
     cout << "La cadena: '" << orden << "'." << endl;
-    orden.separar(elemento);
+    orden.extraer(elemento);
     cout << "Se convierte en: '" << orden << "' y extrae '" << elemento << "'." << endl;
+    orden = "abcDñ";
+    cout << "La cadena: '" << orden << "'." << endl;
+    orden.aMay();
+    cout << "Se convierte en: '" << orden << "'\n";
+    orden.aMin();
+    cout << "O se convierte en: '" << orden << "'\n";
 
     return 0;
 }

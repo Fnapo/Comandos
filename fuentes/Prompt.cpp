@@ -41,7 +41,19 @@ Prompt::~Prompt() {
     cadena[0] = '\0';
 }
 
-void Prompt::separar(Prompt &destino) {
+void Prompt::aMay() {
+    for (int indice = 0; indice < longitud; ++indice) {
+        cadena[indice] = (char) toupper(cadena[indice]);
+    }
+}
+
+void Prompt::aMin() {
+    for (int indice = 0; indice < longitud; ++indice) {
+        cadena[indice] = (char) tolower(cadena[indice]);
+    }
+}
+
+void Prompt::extraer(Prompt &destino) {
     int cuantos;
 
     trim();
