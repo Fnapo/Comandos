@@ -41,6 +41,19 @@ Prompt::~Prompt() {
     cadena[0] = '\0';
 }
 
+int Prompt::operator ==(const Prompt& segunda) {
+    if (longitud != segunda.longitud) {
+        return 0;
+    }
+    for (int indice = 0; indice < longitud; ++indice) {
+        if (cadena[indice] != segunda.cadena[indice]) {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
 void Prompt::aMay() {
     for (int indice = 0; indice < longitud; ++indice) {
         cadena[indice] = (char) toupper(cadena[indice]);

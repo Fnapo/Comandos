@@ -78,6 +78,20 @@ public:
         return cadena[indice];
     }
 
+    /**
+     * 
+     * Comparación estricta de 2 Prompts.
+     * 
+     * @param {const Prompt&} segunda
+     * @return int
+     * 
+     */
+    int operator ==(const Prompt &segunda);
+
+    inline int operator !=(const Prompt &segunda) {
+        return !((*this) == segunda);
+    }
+
     inline operator const char *() {
         return cadena;
     }

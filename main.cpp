@@ -61,12 +61,15 @@ int main() {
     cout << "La cadena: '" << orden << "'." << endl;
     orden.extraer(elemento);
     cout << "Se convierte en: '" << orden << "' y extrae '" << elemento << "'." << endl;
-    orden = "abcDñ";
+    elemento = orden = "abcDñ";
     cout << "La cadena: '" << orden << "'." << endl;
     orden.aMay();
     cout << "Se convierte en: '" << orden << "'\n";
     orden.aMin();
     cout << "O se convierte en: '" << orden << "'\n";
+    cout << "'" << elemento << "' y '" << orden << (orden == elemento ? "' " : "' no ") << "son iguales.\n";
+    orden = elemento;
+    cout << "'" << elemento << "' y '" << orden << (orden == elemento ? "' " : "' no ") << "son iguales.\n";
 
     return 0;
 }
