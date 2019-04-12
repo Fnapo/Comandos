@@ -36,7 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/f7b0a9f8/Prompt.o \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/_ext/5051b69d/main.o
 
 
 # C Compiler Flags
@@ -68,10 +68,10 @@ ${OBJECTDIR}/_ext/f7b0a9f8/Prompt.o: /cygdrive/C/x-cpp/Prompt/fuentes/Prompt.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/f7b0a9f8/Prompt.o /cygdrive/C/x-cpp/Prompt/fuentes/Prompt.cpp
 
-${OBJECTDIR}/main.o: main.cpp
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/5051b69d/main.o: /cygdrive/C/x-cpp/Prompt/main.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/5051b69d
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/5051b69d/main.o /cygdrive/C/x-cpp/Prompt/main.cpp
 
 # Subprojects
 .build-subprojects:

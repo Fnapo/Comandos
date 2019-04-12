@@ -70,7 +70,7 @@ public:
      */
     void extraer(Prompt &destino);
 
-    inline char operator[](int indice) const {
+    char operator[](int indice) const {
         if (indice < 0 || indice >= longitud) {
             return '\0';
         }
@@ -86,20 +86,40 @@ public:
      * @return int
      * 
      */
-    int operator ==(const Prompt &segunda);
+    int operator==(const Prompt &segunda);
 
-    inline int operator !=(const Prompt &segunda) {
+    int operator!=(const Prompt &segunda) {
         return !((*this) == segunda);
     }
 
-    inline operator const char *() {
-        return cadena;
-    }
+    //    int operator==(const char *segunda) {
+    //        return (*this) == Prompt(segunda);
+    //    }
+    //
+    //    int operator!=(const char *segunda) {
+    //        return (*this) != Prompt(segunda);
+    //    }
+    //
+    //    operator const char *() {
+    //        return cadena;
+    //    }
 
-    inline friend ostream& operator<<(ostream &out, const Prompt &origen) {
+    friend ostream& operator<<(ostream &out, const Prompt &origen) {
         out << origen.cadena;
 
         return out;
+    }
+
+    friend int operator==(const char *uno, const Prompt &dos) {
+        return Prompt(uno) == dos;
+    }
+
+    friend int operator!=(const char *uno, const Prompt &dos) {
+        return Prompt(uno) != dos;
+    }
+
+    Prompt & operator=(const Prompt &origen) {
+        return copiar(origen);
     }
 
     /**
@@ -133,7 +153,7 @@ public:
      */
     int leer(istream &in);
 
-    friend inline istream& operator>>(istream &in, Prompt &salida) {
+    friend istream& operator>>(istream &in, Prompt &salida) {
         salida.leer(in);
 
         return in;
@@ -152,10 +172,12 @@ public:
     inline int Longitud() const {
         return longitud;
     }
+
 private:
     char cadena[PROMPT_LONGITUD + 1];
     int longitud;
 
+    Prompt &copiar(const Prompt &origen);
     static Prompt separadores;
 };
 

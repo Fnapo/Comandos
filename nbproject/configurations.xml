@@ -14,7 +14,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>C:/x-cpp/Prompt/fuentes/Prompt.cpp</itemPath>
-      <itemPath>main.cpp</itemPath>
+      <itemPath>C:/x-cpp/Prompt/main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -32,8 +32,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>C:/x-cpp/PrimosCPP/headers</Elem>
-    <Elem>C:\x-cpp\Prompt\fuentes</Elem>
-    <Elem>C:\x-cpp\Prompt\headers</Elem>
+    <Elem>C:\x-cpp\Prompt</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -52,7 +51,7 @@
       </item>
       <item path="C:/x-cpp/Prompt/headers/Prompt.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      <item path="C:/x-cpp/Prompt/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -80,7 +79,7 @@
       </item>
       <item path="C:/x-cpp/Prompt/headers/Prompt.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      <item path="C:/x-cpp/Prompt/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>

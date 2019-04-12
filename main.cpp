@@ -67,8 +67,9 @@ int main() {
     cout << "Se convierte en: '" << orden << "'\n";
     orden.aMin();
     cout << "O se convierte en: '" << orden << "'\n";
-    cout << "'" << elemento << "' y '" << orden << (orden == elemento ? "' " : "' no ") << "son iguales.\n";
-    orden = elemento;
+    orden = "wdd";
+    cout << "'" << "wdd" << "' y '" << orden << (orden == "wdd" ? "' " : "' no ") << "son iguales.\n";
+    cout << "'" << "wdd" << "' y '" << orden << ("wdd" == orden ? "' " : "' no ") << "son iguales.\n";
     cout << "'" << elemento << "' y '" << orden << (orden == elemento ? "' " : "' no ") << "son iguales.\n";
 
     return 0;

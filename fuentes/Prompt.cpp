@@ -23,9 +23,7 @@ Prompt::Prompt() : longitud(0) {
 }
 
 Prompt::Prompt(const Prompt& origen) : longitud(origen.longitud) {
-    for (int indice = 0; indice < longitud; ++indice) {
-        cadena[indice] = origen.cadena[indice];
-    }
+    copiar(origen);
 }
 
 Prompt::Prompt(const char* origen) : longitud(0) {
@@ -39,6 +37,16 @@ Prompt::Prompt(const char* origen) : longitud(0) {
 Prompt::~Prompt() {
     longitud = 0;
     cadena[0] = '\0';
+}
+
+Prompt &Prompt::copiar(const Prompt& origen) {
+    longitud = origen.Longitud();
+    for (int indice = 0; indice < longitud; ++indice) {
+        cadena[indice] = origen.cadena[indice];
+    }
+    cadena[longitud] = '\0';
+
+    return *this;
 }
 
 int Prompt::operator ==(const Prompt& segunda) {
