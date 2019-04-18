@@ -13,8 +13,11 @@
 
 #include <stddef.h>
 #include <cstring>
+#include <termios.h>
+#include <unistd.h>   //_getc
 
 #include "../headers/Prompt.hpp"
+#include "../headers/Macros.hpp"
 
 Prompt Prompt::separadores("\n\t\r\v ");
 
@@ -47,6 +50,56 @@ Prompt &Prompt::copiar(const Prompt& origen) {
     cadena[longitud] = '\0';
 
     return *this;
+}
+
+inline void Prompt::alarma() {
+    printf("\a");
+}
+
+int Prompt::kbhit() {
+    int buf = 0;
+    struct termios old = {0};
+
+    fflush(stdout);
+    if (tcgetattr(0, &old) < 0)
+        perror("tcsetattr()");
+    old.c_lflag &= ~ICANON;
+    old.c_lflag &= ~ECHO;
+    old.c_cc[VMIN] = 1;
+    old.c_cc[VTIME] = 0;
+    if (tcsetattr(0, TCSANOW, &old) < 0)
+        perror("tcsetattr ICANON");
+    if (read(0, &buf, 2) < 0)
+        perror("read()");
+    old.c_lflag |= ICANON;
+    old.c_lflag |= ECHO;
+    if (tcsetattr(0, TCSADRAIN, &old) < 0)
+        perror("tcsetattr ~ICANON");
+
+    return buf;
+}
+
+char Prompt::getch() {
+    char buf = 0;
+    struct termios old = {0};
+
+    fflush(stdout);
+    if (tcgetattr(0, &old) < 0)
+        perror("tcsetattr()");
+    old.c_lflag &= ~ICANON;
+    old.c_lflag &= ~ECHO;
+    old.c_cc[VMIN] = 1;
+    old.c_cc[VTIME] = 0;
+    if (tcsetattr(0, TCSANOW, &old) < 0)
+        perror("tcsetattr ICANON");
+    if (read(0, &buf, 1) < 0)
+        perror("read()");
+    old.c_lflag |= ICANON;
+    old.c_lflag |= ECHO;
+    if (tcsetattr(0, TCSADRAIN, &old) < 0)
+        perror("tcsetattr ~ICANON");
+
+    return buf;
 }
 
 int Prompt::operator ==(const Prompt& segunda) {
@@ -140,17 +193,43 @@ int Prompt::esSeparador(char caracter) {
 }
 
 int Prompt::leer(istream &in) {
-    Prompt aux;
+    int itecla;
+    char tecla;
+    bool salida = 0;
 
-    in.getline(cadena, PROMPT_LONGITUD + 1);
     longitud = 0;
-    while (cadena[longitud] != '\0') {
-        ++longitud;
+    cadena[0] = '\0';
+    while (!salida) {
+        itecla = kbhit();
+        if (itecla > 255) {
+            itecla = kbhit();
+        } else {
+            tecla = (char) itecla;
+            if (!estaEntre<char>(tecla, '\0', 31) && (tecla != DELETE)) {
+                if (longitud < PROMPT_LONGITUD) {
+                    cout << tecla;
+                    cadena[longitud++] = tecla;
+                    cadena[longitud] = '\0';
+                }
+            } else {
+                switch (tecla) {
+                case '\n':
+                    salida = 1;
+                    break;
+                case '\b':
+                case DELETE:
+                    if (longitud) {
+                        cadena[--longitud] = '\0';
+                        cout << '\b';
+                        cout << ' ';
+                        cout << '\b';
+                    }
+                    break;
+                }
+            }
+        }
     }
-    while (in.fail()) {
-        in.clear();
-        in.getline(aux.cadena, PROMPT_LONGITUD + 1);
-    }
+    cout << endl;
 
     return longitud;
 }

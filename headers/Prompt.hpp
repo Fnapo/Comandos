@@ -17,6 +17,14 @@
 #include <iostream>
 
 #define PROMPT_LONGITUD 50
+#define MAX_CIFRAS 12
+#define MAX_DECIMALES 8
+#define DELETE 127  // Tecla del.
+
+typedef struct {
+    unsigned char Signo : 1;
+    unsigned char Punto : 1;
+} NO_NUM;
 
 /*
  * Clase para trabajar con cadenas cortas (COMANDO_LONGITUD caracteres como máximo).
@@ -30,6 +38,25 @@ public:
     Prompt(const char *origen);
 
     virtual ~Prompt();
+
+    /**
+     * 
+     * Efecto sonoro.
+     * 
+     */
+    static void alarma();
+
+    /**
+     * 
+     * @return (int) La tecla pulsada.
+     */
+    static int kbhit();
+
+    /**
+     * 
+     * @return (char) El carácter pulsado.
+     */
+    static char getch();
 
     /**
      * 
